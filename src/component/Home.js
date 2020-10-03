@@ -2,26 +2,15 @@ import React, { useState } from 'react';
 import Modal from './Modal';
 
 function Home() {
-    const [modal, setModal] = useState({
-        modal: false
-    })
+    const [modal, setModal] = useState(false)
 
-    const handleClick = (e) => {
-        const newModal = { modal: true }
-        console.log(newModal)
-        setModal(newModal)
-    }
+    const handleClick = () => setModal(!modal)
 
-    const closeModalHandle = () => {
-        const newModal = { modal: false }
-        setModal(newModal)
-    }
-    console.log(modal)
     return (
 
-        <div>
-            <button onClick={handleClick}>Apri MODAL</button>
-            <Modal isOpen={modal} close={closeModalHandle}>
+        <div className='container-modal'>
+            <button onClick={handleClick}>{modal ? 'Chiudi' : 'Apri'} MODAL</button>
+            <Modal isOpen={modal} >
                 <div className='titleHome'></div>
             </Modal>
         </div>
