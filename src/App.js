@@ -1,26 +1,38 @@
+// IMPORTO I COMPONENTI NECESSARI PER LE ROTTE E IL CSS (comune a tutti i componenti)
+// npm install --save react-router-dom
+
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Navbar from './component/Navbar';
+import Blog from './component/Blog';
+import Post from './component/Post';
+import Todolist from './component/Todolist';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Switch>
+          {/* Lo SWITCH farà vedere un componente per volta */}
+          {/* exact: il percorso deve essere esattamente quello */}
+          <Route path='/' exact component={Home}></Route>
+          <Route path='/todo' exact component={Todolist}></Route>
+          <Route path='/blog' exact component={Blog}></Route>
+          <Route path='/blog/:id' component={Post}></Route>
+          {/* :id  percepisce il cambiamento */}
+        </Switch>
+      </Router>
     </div>
   );
 }
+
+///////////////////////////////////////////////////////////////////
+////////////////////////// COMPONENT HOME //////////////////////////
+//////////////////////////////////////////////////////////////////
+const Home = () => <h1 className="titleHome">SUPERHEROS</h1>
+
 
 export default App;
