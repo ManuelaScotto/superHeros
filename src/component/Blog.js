@@ -13,7 +13,6 @@ function Blog() {
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     // nello useState passo come valore iniziale un array vuoto che sarà poi riempito dagli oggetti presi dalla chiamata fetch
     const [posts, setPosts] = useState([]);
-
     const fetchData = async () => {
         const url = await fetch(`https://akabab.github.io/superhero-api/api/all.json`);
         const data = await url.json();
@@ -26,12 +25,13 @@ function Blog() {
             <div className="wrapperSuperHeroes">
                 {posts.map((post, index) => (
                     <div className="div">
-                        <h4 key={index}> <Link to={`/blog/${post.id}`}> {post.name}</Link> </h4>
+                        <h5 key={index}> <Link to={`/blog/${post.id}`}> {post.name}</Link> </h5>
                     </div>
                 ))}
             </div>
         </div>
     )
 }
+
 
 export default Blog

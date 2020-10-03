@@ -5,6 +5,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './component/Navbar';
+import Home from './component/Home';
 import Blog from './component/Blog';
 import Post from './component/Post';
 import Todolist from './component/Todolist';
@@ -28,11 +29,5 @@ function App() {
     </div>
   );
 }
-
-///////////////////////////////////////////////////////////////////
-////////////////////////// COMPONENT HOME //////////////////////////
-//////////////////////////////////////////////////////////////////
-const Home = () => <h1 className="titleHome">SUPERHEROS</h1>
-
 
 export default App;
