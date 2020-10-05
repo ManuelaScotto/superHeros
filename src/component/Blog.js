@@ -17,6 +17,7 @@ function Blog() {
         const url = await fetch(`https://akabab.github.io/superhero-api/api/all.json`);
         const data = await url.json();
         const posts = data.slice(20, 500) //prende i valori da 20 a 500
+        console.log(posts)
         setPosts(posts)
     }
     return (
